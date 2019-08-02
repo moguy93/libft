@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putnbrd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:17:34 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/24 15:13:07 by moguy            ###   ########.fr       */
+/*   Created: 2019/01/18 19:47:02 by moguy             #+#    #+#             */
+/*   Updated: 2019/01/18 20:22:52 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+void	ft_putnbrd(double n)
 {
-	if ((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1);
-	return (0);
+	int		nb;
+
+	nb = n;
+	n -= nb;
+	if (nb < 0)
+	{
+		n = -n;
+		nb = -nb;
+		ft_putchar('-');
+	}
+	ft_putnbr(nb);
+	ft_putchar(',');
+	while (((n * 1000000) / 1) > 0)
+	{
+		nb = n * 10;
+		n = n * 10;
+		if (nb / 1 != 0)
+			ft_putnbr(nb);
+		else
+			ft_putchar('0');
+	}
 }

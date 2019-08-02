@@ -6,17 +6,35 @@
 #    By: moguy <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/13 16:01:44 by moguy             #+#    #+#              #
-#    Updated: 2018/11/21 12:47:47 by moguy            ###   ########.fr        #
+#    Updated: 2019/06/28 07:47:39 by moguy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+DEF = \033[0m
+GRA = \033[1m
+SOU = \033[4m
+BLI = \033[5m
+BLA = \033[30m
+RED = \033[31m
+GRE = \033[32m
+YEL = \033[33m
+BLU = \033[34m
+PUR = \033[35m
+CYA = \033[36m
+WHI = \033[37m
+ORG = \033[1;31m
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
+MAKEFLAGS += -s
+
 NAME = libft.a
 
 SRCS =	ft_isprint.c \
+		ft_strrev.c \
+		ft_nblen.c \
 		ft_lstnew.c \
 		ft_lstadd.c \
 		ft_lstdel.c \
@@ -24,6 +42,7 @@ SRCS =	ft_isprint.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
 		ft_power.c \
+		ft_putnbrd.c \
 		ft_strcat.c \
 		ft_strjoin.c \
 		ft_strnstr.c \
@@ -77,24 +96,28 @@ SRCS =	ft_isprint.c \
 		ft_memset.c \
 		ft_realloc.c \
 		ft_striteri.c \
-		ft_is_white_space.c\
-		ft_strnew.c
+		ft_is_whitespace.c\
+		ft_strnew.c\
+		ft_del.c \
+		get_next_line.c
 
 OBJ = $(SRCS:.c=.o)
 
-all : $(NAME) libft.h
+.PHONY: all clean fclean re
+
+all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+			@ar rc $(NAME) $(OBJ)
+			@ranlib $(NAME)
 
-$(OBJ) : $(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS)
+%.o : %.c libft.h
+		@$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	rm -rf $(OBJ)
+			@rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME)
+			@rm -rf $(NAME)
 
 re : fclean all

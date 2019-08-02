@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:28:26 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/16 15:44:18 by moguy            ###   ########.fr       */
+/*   Updated: 2019/07/19 08:31:40 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 char	*ft_strnew(size_t size)
 {
 	char	*new;
-	size_t	i;
 
-	i = 0;
-	if (!(new = (char*)malloc(sizeof(char) * size + 1)))
+	if (!(new = (char*)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	ft_bzero(new, size + 1);
 	return (new);

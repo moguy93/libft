@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:03:28 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/16 14:04:20 by moguy            ###   ########.fr       */
+/*   Updated: 2019/06/24 04:05:40 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putendl_fd(char const *s, int fd)
 {
 	if (s && fd)
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		write(fd, s, ft_strlen(s));
+		write(fd, "\n", 1);
 	}
 }

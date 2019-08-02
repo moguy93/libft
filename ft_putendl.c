@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 17:41:54 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/08 17:57:02 by moguy            ###   ########.fr       */
+/*   Created: 2019/01/06 22:29:31 by moguy             #+#    #+#             */
+/*   Updated: 2019/04/25 19:12:28 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void	ft_putendl(const char *s)
 {
-	if (s)
-	{
-		ft_putstr(s);
-		ft_putchar('\n');
-	}
+	if (!s)
+		return ;
+	write(1, s, ft_strlen(s));
+	write(1, "\n", 1);
 }

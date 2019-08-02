@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 20:16:11 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/17 18:46:21 by moguy            ###   ########.fr       */
+/*   Updated: 2018/11/24 15:17:00 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ char	*ft_strtrim(char const *s)
 		return (NULL);
 	size = ft_strlen(s);
 	len = ft_strlen(s) - 1;
-	while (ft_is_white_space(s[i]) == 1)
+	while (ft_is_whitespace(s[i]) == 1)
 	{
 		i++;
 		size--;
 	}
 	if (!s[i])
 		return (ft_strdup(""));
-	while (ft_is_white_space(s[len]) == 1 && len > 0)
+	while (ft_is_whitespace(s[len]) == 1 && len > 0)
 	{
 		len--;
 		size--;

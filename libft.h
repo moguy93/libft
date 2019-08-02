@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:48:43 by moguy             #+#    #+#             */
-/*   Updated: 2019/03/22 16:53:47 by moguy            ###   ########.fr       */
+/*   Updated: 2019/07/27 18:50:07 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
+# define BUFF_SIZE 10
 
 typedef struct		s_list
 {
@@ -24,9 +24,15 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+void				ft_del(void *ap, size_t size);
+
+void				ft_strrev(char *str);
+
+int					get_next_line(const int fd, char **line);
+
 int					ft_abs(int i);
 
-int					ft_atoi(const char *str);
+long long int		ft_atoi(const char *str);
 
 void				ft_bzero(void *s, size_t n);
 
@@ -42,7 +48,7 @@ int					ft_isdigit(int c);
 
 int					ft_isprint(int c);
 
-int					ft_is_white_space(int c);
+int					ft_is_whitespace(char c);
 
 char				*ft_itoa(int n);
 
@@ -74,7 +80,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 
 void				*ft_memset(void *b, int c, size_t len);
 
-double				ft_power_d(double n, int pow);
+int					ft_nb_len(long long int nb);
 
 int					ft_power(int n, int pow);
 
@@ -87,6 +93,8 @@ void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 
 void				ft_putnbr(int n);
+
+void				ft_putnbrd(double n);
 
 void				ft_putnbr_fd(int n, int fd);
 

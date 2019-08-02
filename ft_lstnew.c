@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 19:52:43 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/16 20:46:10 by moguy            ###   ########.fr       */
+/*   Updated: 2019/01/07 18:41:05 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		newlst->content = ft_strdup((char*)content);
+		if (!(newlst->content = ft_strdup((char*)content)))
+			return (NULL);
 		newlst->content_size = content_size;
 	}
 	newlst->next = NULL;

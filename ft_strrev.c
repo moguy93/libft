@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:17:34 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/24 15:13:07 by moguy            ###   ########.fr       */
+/*   Created: 2019/04/07 21:16:40 by moguy             #+#    #+#             */
+/*   Updated: 2019/07/15 02:11:03 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+void	ft_strrev(char *str)
 {
-	if ((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1);
-	return (0);
+	unsigned int	i;
+	unsigned int	j;
+	char			tmp;
+
+	i = 0;
+	j = 0;
+	if (!str)
+		return ;
+	while (str[j])
+		j++;
+	j--;
+	while (i < j)
+	{
+		tmp = str[j];
+		str[j] = str[i];
+		str[i] = tmp;
+		j--;
+		i++;
+	}
 }

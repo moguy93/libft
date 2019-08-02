@@ -6,7 +6,7 @@
 /*   By: moguy <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:50:29 by moguy             #+#    #+#             */
-/*   Updated: 2018/11/14 15:43:27 by moguy            ###   ########.fr       */
+/*   Updated: 2019/06/28 07:45:44 by moguy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	i = 0;
 	while (s1[i])
 		i++;
-	if (!(ft_strlen(s1) >= (i + ft_strlen(s2) + 1)))
+	if (!(ft_strlen(s1) >= ((size_t)i + ft_strlen(s2) + 1)))
 	{
 		while (s2[j])
 		{
